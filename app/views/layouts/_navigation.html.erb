@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<%= link_to "Kalendarize", root_path, class: "navbar-brand" %>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%= icon('fas', 'bars') %>
+  </button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<%= link_to about_path, class: "nav-link" do %>
+					<%= icon('fas', 'info') %> About
+				<% end %>
+			</li>
+			<li class="nav-item">
+				<%= link_to developer_path, class: "nav-link" do %>
+					<%= icon('fas', 'code') %> Developer
+				<% end %>
+			</li>
+			<li class="nav-item">
+				<%= link_to help_path, class: "nav-link" do %>
+					<%= icon('far', 'question-circle') %> Help
+				<% end %>
+			</li>
+			<li class="nav-item">
+				<%= link_to tutorial_path, class: "nav-link" do %>
+					<%= icon('fas', 'book') %> Tutorial
+				<% end %>
+			</li>
+		</ul>		
+	</div>
+</nav>

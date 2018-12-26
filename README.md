@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Kalendarize is a schedule tracking platform running on Rails 5. It is able to follow and track schedules of participating Twitch streamers to increase attendance and viewer awareness. Streamers input their streaming schedules and Viewers follow streamers and compile a personalized daily or weekly schedule of when their favorite streamers go live. 
 
-Things you may want to cover:
+This takes informing viewers of stream times out of the hands of streamers and gives viewers another tool to stay "in-the-know".
 
-* Ruby version
+To get started:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Clone the repo and then install the needed gems:
