@@ -73,6 +73,7 @@ group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest'
   gem 'minitest-reporters'
+  gem 'win32console'
 end
 
 group :production do
