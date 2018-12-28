@@ -1,1 +1,5 @@
-# empty
+geralt:
+  name: Geralt of Rivia
+  username: daddygeralt
+  email: geralt@rivia.com
+  password_digest: <%= User.digest('password') %>

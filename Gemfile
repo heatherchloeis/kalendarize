@@ -49,6 +49,9 @@ gem 'font-awesome-sass', '~> 5.3.1'
 # Use Faker for testing
 gem 'faker', '1.9.1'
 
+# Abort requests that are taking too long; an exception is raised
+gem "rack-timeout"
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"

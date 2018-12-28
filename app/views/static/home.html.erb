@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
 
 <h1 class="text-center">Welcome!</h1>
-<%= button_to '#', class: "btn btn-primary d-block mx-auto" do %>
+<%= button_to signup_path, method: :get,  class: "btn btn-primary d-block mx-auto" do %>
 	<%= icon('fas', 'check') %> Sign up!
 <% end %>

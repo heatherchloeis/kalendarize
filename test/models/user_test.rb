@@ -9,6 +9,8 @@ class UserTest < ActiveSupport::TestCase
 										 password_confirmation: "password")
 	end
 
+	# User name, username, email, and password testing suite
+
 	test "should be valid" do
 		assert @user.valid? 
 	end 
@@ -85,5 +87,11 @@ class UserTest < ActiveSupport::TestCase
 		@user.email = mixed_case_email
 		@user.save
 		assert_equal mixed_case_email.downcase, @user.reload.email
+	end
+
+	# User login/logout testing suite
+
+	test "authenticated? should return false for a user with nil digest" do
+		assert_not @user.authenticated?('')
 	end
 end
