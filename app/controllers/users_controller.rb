@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		@title = "Sign up"
 		@user = User.new
 	end
 
@@ -24,6 +23,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def destroy

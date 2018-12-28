@@ -1,5 +1,8 @@
+<%= provide(:title, "Login") %>
+
 <div class="row">
 	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
+		<h1 class="text-center">Login</h1>
 		<%= form_for(:session, url: login_path) do |f| %>
 			<%= f.label :login %>
 			<%= f.text_field :login, class: "form-control form-control-sm" %>
