@@ -1,0 +1,11 @@
+<% provide(:title, "All users") %>
+
+<div class="row">
+	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
+		<ul class="list-group">
+			<% @users.each do |u| %>
+				<%= render "partials/user", u: u %>
+			<% end %>
+		</ul>
+	</div>
+</div>

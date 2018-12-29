@@ -3,3 +3,29 @@ geralt:
   username: daddygeralt
   email: geralt@rivia.com
   password_digest: <%= User.digest('password') %>
+
+yennifer:
+  name: Yennifer of Vengerberg
+  username: yennybaby
+  email: yennifer@vengerberg.com
+  password_digest: <%= User.digest('password') %>
+
+cirilla:
+  name: ciri
+  username: cirilla
+  email: cirilla@cintra.com
+  password_digest: <%= User.digest('password') %>
+
+tris:
+  name: triss
+  username: marigold
+  email: triss@maribor.com
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  username: <%= "user_#{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>

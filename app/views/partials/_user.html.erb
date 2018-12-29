@@ -1,0 +1,9 @@
+<li class="list-group-item">
+	<%= link_to u do %>
+		<%= u.name %><br>
+		@<%= u.username %>
+	<% end %>
+	<% if current_user.admin? && !current_user?(u) %>
+		| <%= link_to "delete?", u, method: :delete, data: { confirm: "Are you sure?" } %>
+	<% end %>
+</li>

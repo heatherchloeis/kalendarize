@@ -12,7 +12,7 @@ class User < ApplicationRecord
 												format: { with: URI::MailTo::EMAIL_REGEXP },
 												uniqueness: { case_sensitive: false }
 	has_secure_password
-	validates :password,	presence: true, length: { minimum: 8 }
+	validates :password,	presence: true, length: { minimum: 8 }, allow_nil: true
 
 	class << self
 		# Returns the hash digest of the given string
