@@ -3,24 +3,34 @@ geralt:
   username: daddygeralt
   email: geralt@rivia.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 yennifer:
   name: Yennifer of Vengerberg
   username: yennybaby
   email: yennifer@vengerberg.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 cirilla:
   name: ciri
   username: cirilla
   email: cirilla@cintra.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 tris:
   name: triss
   username: marigold
   email: triss@maribor.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
@@ -28,4 +38,6 @@ user_<%= n %>:
   username: <%= "user_#{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>

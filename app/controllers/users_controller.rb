@@ -7,11 +7,12 @@ class UsersController < ApplicationController
   before_action :admin_user,			only: :destroy
 
   def index
-  	@users = User.all
+  	@users = User.where(activated: true)
   end
 
 	def show
 		@user = User.find(params[:id])
+		redirect_to root_url and return unless @user.activated?
 	end
 
 	def new
@@ -22,11 +23,11 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			# Handle a successful user creation
-			log_in @user
-			flash[:success] = "Welcome to Kalendarize (ﾉ●ω●)ﾉ*:･ﾟ✧ Let's Get Started!!!"
-			redirect_to @user
+			@user.send_activation_email
+			flash[:success] = "Welcome to Kalendarize (ﾉ●ω●)ﾉ*:･ﾟ✧ Please Check Your Email to Activate Your Account!!!"
+			redirect_to login_url
 		else
-			flash[:danger] = "Oh Dear (づ●︿●)づ Something Seems to Have Gone Wrong with Your Submission! Please Try Again"
+			flash[:danger] = "Oh Dear (づಠ╭╮ಠ)づ Something Seems to Have Gone Wrong with Your Submission! Please Try Again"
 			render 'new'
 		end
 	end
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
 			redirect_to @user
 		else
 			# Handle an unsuccessful user update
-			flash[:danger] = "Oh Dear (づ●︿●)づ Something Seems to Have Gone Wrong! Please Try Again"
+			flash[:danger] = "Oh Dear (づಠ╭╮ಠ)づ Something Seems to Have Gone Wrong! Please Try Again"
 			render 'edit'
 		end
 	end
