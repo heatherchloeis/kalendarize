@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			# Handle a successful user creation
 			log_in @user
 			flash[:success] = "Welcome to Kalendarize (ﾉ●ω●)ﾉ*:･ﾟ✧ Let's Get Started!!!"
 			redirect_to @user
@@ -20,6 +21,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(user_params)
+			# Handle a successful user update
+		else
+			render 'edit'
+		end
 	end
 
 	def edit
