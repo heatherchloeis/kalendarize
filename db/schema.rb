@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_172658) do
-
-  create_table "streams", force: :cascade do |t|
-    t.string "day"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer "user_id"
-    t.text "recurring"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "day"], name: "index_streams_on_user_id_and_day"
-    t.index ["user_id", "start_time"], name: "index_streams_on_user_id_and_start_time"
-    t.index ["user_id"], name: "index_streams_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2018_12_30_194439) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -39,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_01_02_172658) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.boolean "streamer", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
