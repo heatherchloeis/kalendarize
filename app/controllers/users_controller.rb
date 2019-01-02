@@ -55,13 +55,21 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
+  # def following
+  #   @title = "Following"
+  #   @user = User.friendly.find(params[:id])
+  #   @users = @user.following
+  #   render 'show_follow'
+  # end
+
 	private
 		def user_params
 			params.require(:user).permit(:name,
 																	 :username,
 																	 :email,
 																	 :password,
-																	 :password_confirmation)
+																	 :password_confirmation,
+																	 :streamer)
 		end
 
 		# Confirms logged-in user
@@ -83,4 +91,18 @@ class UsersController < ApplicationController
     def admin_user
     	redirect_to(root_url) unless current_user.admin?
     end
+
+    # Confirms streamer user
+    def streamer_user
+    	redirect_to(root_url) unless current_user.streamer?
+    end
+end
+
+class StreamersController < UsersController
+  # def followers
+  #   @title = "Followers"
+  #   @user = User.friendly.find(params[:id])
+  #   @users = @user.followers
+  #   render 'show_follow'
+  # end
 end
