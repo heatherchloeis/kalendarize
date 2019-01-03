@@ -3,6 +3,7 @@ User.create!(name: "geralt",
 						 email: "geralt@rivia.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 streamer: true,
 						 admin: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
@@ -21,6 +22,7 @@ User.create!(name: "ciri",
 						 email: "cirilla@cintra.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 streamer: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
 
@@ -29,6 +31,16 @@ User.create!(name: "triss",
 						 email: "triss@maribor.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 streamer: true,
+						 activated: true,
+						 activated_at: Time.zone.now)
+
+User.create!(name: "keira metz",
+						 username: "keira",
+						 email: "keira@carreras.com",
+						 password: "password",
+						 password_confirmation: "password",
+						 streamer: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
 

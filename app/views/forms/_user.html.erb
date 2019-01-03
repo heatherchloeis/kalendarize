@@ -14,5 +14,10 @@
 	<%= f.label :password_confirmation %>
 	<%= f.password_field :password_confirmation, class: "form-control form-control-sm" %>
 
+	<div class="form-group-check">
+		<%= f.check_box :streamer, class: "form-control form-control-check" %>
+		<%= f.label :streamer, "Are You A Streamer?" %>
+	</div>
+
 	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

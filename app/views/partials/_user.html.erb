@@ -1,7 +1,13 @@
 <li class="list-group-item">
 	<%= link_to u do %>
-		<%= u.name %><br>
-		@<%= u.username %>
+		<%= u.name %>	@<%= u.username %>
+	<% end %>
+	<br>
+	streamer
+	<% if u.streamer? %>
+		<%= icon('fas', 'check') %>
+	<% else %>
+		<%= icon('fas', 'times') %>
 	<% end %>
 	<% if current_user.admin? && !current_user?(u) %>
 		| <%= link_to "delete?", u, method: :delete, data: { confirm: "Are you sure?" } %>

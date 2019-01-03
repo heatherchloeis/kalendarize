@@ -5,6 +5,7 @@ class UsersController < ApplicationController
                                         :destroy]
   before_action :correct_user,    only: [:edit, :update]
   before_action :admin_user,			only: :destroy
+  # before_action :streamer_user,		only: [:followers]
 
   def index
   	@users = User.where(activated: true)
@@ -55,22 +56,28 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
+  # def following
+  #   @title = "Following"
+  #   @user = User.friendly.find(params[:id])
+  #   @users = @user.following
+  #   render 'show_follow'
+  # end
+
+  # def followers
+  #   @title = "Followers"
+  #   @user = User.friendly.find(params[:id])
+  #   @users = @user.followers
+  #   render 'show_follow'
+  # end
+
 	private
 		def user_params
 			params.require(:user).permit(:name,
 																	 :username,
 																	 :email,
 																	 :password,
-																	 :password_confirmation)
-		end
-
-		# Confirms logged-in user
-		def logged_in_user
-			unless logged_in?
-				store_location
-				flash[:danger] = "Please log in (ﾉಠ_ಠ)ﾉ 彡 ┻━┻"
-				redirect_to login_url
-			end
+																	 :password_confirmation,
+																	 :streamer)
 		end
 
 		# Confirms correct user
