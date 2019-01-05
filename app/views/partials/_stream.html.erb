@@ -1,0 +1,10 @@
+<li class="list-group-item">
+	<%= link_to s.user do %>
+		<%= icon('fas', 'user-circle') %> <%= s.user.name %> @<%= s.user.username %>
+	<% end %>
+	<%= render "partials/stream_dropdown", s: s %>
+	<div>
+		<%= s.day.strftime('%A') %> &nbsp;
+		<%= s.start_time.strftime('%I:%M') %> - <%= s.end_time.strftime('%I:%M %p %Z') %>
+	</div>
+</li>

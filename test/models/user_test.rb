@@ -7,6 +7,12 @@ class UserTest < ActiveSupport::TestCase
 										 email: "user@example.com",
 										 password: "password",
 										 password_confirmation: "password")
+		@other_user = User.new(name: "Other User",
+										 			 username: "otheruser",
+										 			 email: "other_user@example.com",
+										 			 password: "password",
+										 			 password_confirmation: "password",
+										 			 streamer: true)
 	end
 
 	# User name, username, email, and password testing suite
@@ -93,5 +99,15 @@ class UserTest < ActiveSupport::TestCase
 
 	test "authenticated? should return false for a user with nil digest" do
 		assert_not @user.authenticated?(:remember, '')
+	end
+
+	# User's streams testing suite
+
+	test "associated streams should be destroyed" do
+		@other_user.save
+		@other_user.streams.create!(day: '2019-01-11', start_time: '12:00:00', end_time: '16:00:00')
+		assert_difference 'Stream.count', -1 do
+			@other_user.destroy
+		end
 	end
 end

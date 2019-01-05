@@ -1,0 +1,18 @@
+<%= form_for(@stream) do |f| %>
+	<div class="form-group form-row">
+		<%= f.label :day, class: "col-8" %>
+		<%= f.select :day, options_for_days, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<div class="form-group form-row">
+		<%= f.label :start_time, class: "col-8" %>
+		<%= f.time_field :start_time, :ignore_date => true, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<div class="form-group form-row">
+		<%= f.label :end_time, class: "col-8" %>
+		<%= f.time_field :end_time, options: { :ignore_date => true }, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<%= f.submit "submit", class: "btn btn-primary" %>
+<% end %>

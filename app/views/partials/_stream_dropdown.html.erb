@@ -1,0 +1,15 @@
+<% if current_user?(s.user) %>
+	<div class="float-right dropright">
+		<a class="float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<%= icon('fas', 'ellipsis-v') %>
+		</a>
+		<div class="dropdown-menu">
+			<%= link_to edit_stream_path(s), class: "dropdown-item" do %>
+				<%= icon('fas', 'edit') %>
+			<% end %>
+			<%= link_to s, method: :delete, data: { confirm: "Are You Sure?" }, class: "dropdown-item" do %>
+				<%= icon('fas', 'times') %>
+			<% end %>
+		</div>
+	</div>
+<% end %>

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_225519) do
+ActiveRecord::Schema.define(version: 2019_01_03_191948) do
+
+  create_table "streams", force: :cascade do |t|
+    t.date "day"
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "day"], name: "index_streams_on_user_id_and_day"
+    t.index ["user_id"], name: "index_streams_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

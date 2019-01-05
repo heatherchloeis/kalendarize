@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		redirect_to root_url and return unless @user.activated?
+		@streams = @user.streams
 	end
 
 	def new
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		User.find(params[:id]).destroy
-		flash[:success] = "The Evil User Has Been Successfully Defeated o(╥﹏╥)o"
+		flash[:success] = "The User Has Been Successfully Deleted o(╥﹏╥)o"
 		redirect_to users_url
 	end
 

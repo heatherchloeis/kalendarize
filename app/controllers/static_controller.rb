@@ -8,7 +8,11 @@ class StaticController < ApplicationController
   end
 
   def home
-    @title = "Home"
+    if logged_in?
+      @title = "Home"
+      @stream = current_user.streams.build
+      @schedule_items = current_user.schedule
+    end
   end
 
   def help

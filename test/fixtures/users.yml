@@ -12,6 +12,7 @@ yennifer:
   username: yennybaby
   email: yennifer@vengerberg.com
   password_digest: <%= User.digest('password') %>
+  streamer: true
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
@@ -21,14 +22,25 @@ cirilla:
   username: cirilla
   email: cirilla@cintra.com
   password_digest: <%= User.digest('password') %>
+  streamer: true
   activated: true
   activated_at: <%= Time.zone.now %>
 
-tris:
+triss:
   name: triss
   username: marigold
   email: triss@maribor.com
   password_digest: <%= User.digest('password') %>
+  streamer: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+keira:
+  name: keira
+  username: keira
+  email: keira@carreras.com
+  password_digest: <%= User.digest('password') %>
+  streamer: true
   activated: true
   activated_at: <%= Time.zone.now %>
 

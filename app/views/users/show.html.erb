@@ -1,3 +1,5 @@
+<% provide(:title, "#{@user.name} @#{@user.username}") %>
+
 <div class="row">
 	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
 		<%= @user.name %> @<%= @user.username %>
@@ -10,5 +12,15 @@
 				<%= icon('fas', 'times') %>
 			<% end %>
 		</p>
+	</div>
+	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
+		<% if @user.streams.any? %>
+			<h3 class="text-center">Stream Times</h3>
+			<ul class="list-group">
+				<% @user.streams.each do |s| %>
+					<%= render 'partials/stream', s: s %>
+				<% end %>
+			</ul>
+		<% end %>
 	</div>
 </div>

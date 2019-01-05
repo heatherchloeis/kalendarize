@@ -1,0 +1,59 @@
+stream_one:
+  day: '2019-01-07'
+  start_time: '12:00:00'
+  end_time: '16:00:00'
+  user: cirilla
+
+stream_two:
+  day: '2019-01-07'
+  start_time: '14:00:00'
+  end_time: '20:00:00'
+  user: yennifer
+
+stream_three:
+  day: '2019-01-07'
+  start_time: '16:00:00'
+  end_time: '20:00:00'
+  user: triss
+
+stream_four:
+  day: '2019-01-08'
+  start_time: '12:00:00'
+  end_time: '16:00:00'
+  user: cirilla
+
+stream_five:
+  day: '2019-01-08'
+  start_time: '14:00:00'
+  end_time: '20:00:00'
+  user: yennifer
+
+stream_six:
+  day: '2019-01-09'
+  start_time: '12:00:00'
+  end_time: '16:00:00'
+  user: cirilla
+
+stream_seven:
+  day: '2019-01-09'
+  start_time: '14:00:00'
+  end_time: '20:00:00'
+  user: yennifer
+
+stream_eight:
+  day: '2019-01-10'
+  start_time: '12:00:00'
+  end_time: '16:00:00'
+  user: cirilla
+
+stream_nine:
+  day: '2019-01-10'
+  start_time: '14:00:00'
+  end_time: '20:00:00'
+  user: yennifer
+
+stream_ten:
+  day: '2019-01-10'
+  start_time: '16:00:00'
+  end_time: '20:00:00'
+  user: triss

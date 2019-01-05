@@ -11,8 +11,11 @@ class User < ApplicationRecord
 	validates :email, 		presence: true, length: {  maximum: 240 }, 
 												format: { with: URI::MailTo::EMAIL_REGEXP },
 												uniqueness: { case_sensitive: false }
-	has_secure_password
 	validates :password,	presence: true, length: { minimum: 8 }, allow_nil: true
+
+	has_secure_password
+
+	has_many :streams, dependent: :destroy
 
 	class << self
 		# Returns the hash digest of the given string
@@ -71,11 +74,12 @@ class User < ApplicationRecord
 		reset_sent_at < 2.hours.ago
 	end
 
-	# # Defines post feed
-	# def schedule
-	# 	following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
-	# 	Post.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
-	# end
+	# Defines post feed
+	def schedule
+		Stream.where("user_id = ?", id)
+		# following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+		# Post.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+	end
 
 	# # Follows a user
 	# def follow(other_user)

@@ -1,0 +1,8 @@
+<% if @schedule_items.any? %>
+	<h3 class="text-center">Stream Shedule</h3>
+	<ul class="list-group">
+		<% @schedule_items.each do |s| %>
+			<%= render 'partials/stream', s: s %>
+		<% end %>
+	</ul>
+<% end %>
