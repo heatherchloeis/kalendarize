@@ -44,9 +44,9 @@ User.create!(name: "keira metz",
 						 activated: true,
 						 activated_at: Time.zone.now)
 
-99.times do
+99.times do |n|
 	User.create!(name: Faker::Name.name,
-							 username: Faker::Internet.username(5..15),
+							 username: "user#{n+1}",
 							 email: Faker::Internet.email,
 							 password: "password",
 							 password_confirmation: "password",

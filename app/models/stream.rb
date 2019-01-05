@@ -6,11 +6,11 @@ class Stream < ApplicationRecord
 
   validate  :valid_time_slot
 
-  validates :start_time, :end_time, :overlap => { :scope => :user_id && :day, :load_overlapped => true }
+  validates :start_time, :end_time, :overlap => { :scope => [:user_id, :day], :load_overlapped => true }
 
   belongs_to :user, -> { where(streamer: true) }
 
-  default_scope -> { order(day: :asc, start_time: :asc) }
+  default_scope -> { order(day: :asc, start_time: :asc, end_time: :asc) }
 
   private
   	def valid_time_slot

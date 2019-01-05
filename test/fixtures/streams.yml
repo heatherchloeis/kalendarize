@@ -12,7 +12,7 @@ stream_two:
 
 stream_three:
   day: '2019-01-07'
-  start_time: '16:00:00'
+  start_time: '12:00:00'
   end_time: '20:00:00'
   user: triss
 
@@ -54,6 +54,6 @@ stream_nine:
 
 stream_ten:
   day: '2019-01-10'
-  start_time: '16:00:00'
+  start_time: '12:00:00'
   end_time: '20:00:00'
   user: triss
