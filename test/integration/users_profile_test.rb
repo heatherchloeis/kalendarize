@@ -5,7 +5,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
 	def setup
 		@user = users(:geralt)
-		@other_user = users(:yennifer)
+		log_in_as(@user)
 	end
 
 	test "profile page should include important information" do 

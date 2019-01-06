@@ -1,0 +1,19 @@
+<% @user ||= current_user %>
+
+<div class="row">
+	<div class="col-4 text-center">
+		<%= link_to following_user_path(@user) do %>
+			<b>Following</b><br>
+			<%= @user.following.count %>
+		<% end %>
+	</div>
+	<div class="col-4 text-center">
+		<%= link_to followers_user_path(@user) do %>
+			<b>Followers</b><br>
+			<%= @user.followers.count %>
+		<% end %>
+	</div>
+	<div class="col-4">
+		<%= render 'forms/follow', followed_id: @user.id %>
+	</div>
+</div>

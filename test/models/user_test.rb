@@ -110,4 +110,35 @@ class UserTest < ActiveSupport::TestCase
 			@other_user.destroy
 		end
 	end
+
+	test "should follow and unfollow a streamer" do
+		yennifer = users(:yennifer)
+		cirilla = users(:cirilla)
+		assert_not yennifer.following?(cirilla)
+		# Follow a streamer
+		yennifer.follow(cirilla)
+		assert yennifer.following?(cirilla)
+		assert cirilla.followers.include?(yennifer)
+		# Unfollow a streamer
+		yennifer.unfollow(cirilla)
+		assert_not yennifer.following?(yennifer)
+	end
+
+	test "following schedule should have right streams" do
+		geralt = users(:geralt)
+		yen = users(:yennifer)
+		ciri = users(:cirilla)
+		# Streams from self
+		yen.streams.each do |s|
+			assert_not yen.following_schedule.include?(s)
+		end
+		# Streams from followed user
+		yen.streams.each do |s|
+			assert geralt.following_schedule.include?(s)
+		end
+		# Streams from unfollowed user
+		ciri.streams.each do |s|
+			assert_not yen.following_schedule.include?(s)
+		end
+	end
 end

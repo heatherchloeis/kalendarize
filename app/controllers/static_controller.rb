@@ -12,6 +12,7 @@ class StaticController < ApplicationController
       @title = "Home"
       @stream = current_user.streams.build
       @schedule_items = current_user.schedule
+      @following_schedule_items = current_user.following_schedule
     end
   end
 

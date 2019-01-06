@@ -44,6 +44,14 @@ keira:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+vesemir:
+  name: vesemir
+  username: silverfox
+  email: vesemir@kaermohren.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>

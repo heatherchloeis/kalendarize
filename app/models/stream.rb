@@ -22,6 +22,6 @@ class Stream < ApplicationRecord
 	  		if end_time <= start_time
 	  			errors.add(:end_time, "Streams Can't Time Travel (づಠ╭╮ಠ)づ Please Try Again")
 	  		end
-	  	end	  			
+	  	end
   	end
 end

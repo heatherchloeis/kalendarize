@@ -54,13 +54,22 @@ User.create!(name: "keira metz",
 							 activated_at: Time.zone.now)
 end
 
-users = User.order(:created_at).take(5)
+streamers = User.where("streamer = ?", true)
 days = ['2019-01-07', '2019-01-08', '2019-01-09', '2019-01-10', '2019-01-11']
 start_time = '12:00:00'
 end_time = '18:00:00'
 i = 0
 
 while i < days.size do
-	users.each { |u| u.streams.create!(day: days[i], start_time: start_time, end_time: end_time) if u.streamer? }
+	streamers.each { |s| s.streams.create!(day: days[i], start_time: start_time, end_time: end_time) if s.streamer? }
 	i = i + 1
 end
+
+users = User.all 
+
+while i < streamers.size do
+	streamers.each { |s| s.follow(streamers[i]) }
+	users.each { |u| u.follow(streamers[i]) }
+	i = i +1
+end
+

@@ -20,7 +20,7 @@ class StaticControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
     get root_path
     assert_response :success
-    assert_select "title", "Home | #{@app_title}"
+    assert_select "title", "#{@app_title}"
   end
 
   test "should get help" do

@@ -22,7 +22,6 @@ class StreamsControllerTest < ActionDispatch::IntegrationTest
 
 	test "should redirect destroy for wrong stream" do
 		log_in_as(@user)
-		get stream_path(@stream.id)
 		assert_no_difference 'Stream.count' do
 			delete stream_path(@stream)
 		end

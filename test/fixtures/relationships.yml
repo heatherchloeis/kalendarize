@@ -1,0 +1,23 @@
+one:
+  follower: geralt
+  followed: yennifer
+
+two:
+  follower: geralt
+  followed: cirilla
+
+three:
+  follower: geralt
+  followed: triss
+
+four:
+  follower: geralt
+  followed: keira
+
+five:
+  follower: yennifer
+  followed: triss
+
+six:
+  follower: yennifer
+  followed: keira
