@@ -18,10 +18,10 @@ class BackgroundPicUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url(*args)
-    # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_path("defaults/" + "default_background_pic.jpg", host: "https://kalendarize.herokuapp.com/")
-  end
+  # def default_url(*args)
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   ActionController::Base.helpers.asset_path("defaults/" + "default_background_pic.jpg", host: "https://kalendarize.herokuapp.com/")
+  # end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
