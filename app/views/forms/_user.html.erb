@@ -1,23 +1,34 @@
-<%= form_for(@user) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name, class: "form-control form-control-sm" %>
+<%= form_for(@user, html: { multipart: true }) do |f| %>
+	<div class="row">
+		<div class="col-sm-6">
+			<%= f.label :profile_pic %>
+			<%= f.file_field :profile_pic, class: "form-control-file" %>
 
-	<%= f.label :username %>
-	<%= f.text_field :username, class: "form-control form-control-sm" %>
+			<%= f.label :background_pic %>
+			<%= f.file_field :background_pic, class: "form-control-file" %>
+		</div>
+		<div class="col-sm-6">
+			<%= f.label :name %>
+			<%= f.text_field :name, class: "form-control form-control-sm" %>
 
-	<%= f.label :email %>
-	<%= f.email_field :email, class: "form-control form-control-sm" %>
+			<%= f.label :username %>
+			<%= f.text_field :username, class: "form-control form-control-sm" %>
 
-	<%= f.label :password %>
-	<%= f.password_field :password, class: "form-control form-control-sm" %>
+			<%= f.label :email %>
+			<%= f.email_field :email, class: "form-control form-control-sm" %>
 
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation, class: "form-control form-control-sm" %>
+			<%= f.label :password %>
+			<%= f.password_field :password, class: "form-control form-control-sm" %>
 
-	<div class="form-group-check">
-		<%= f.check_box :streamer, class: "form-control form-control-check" %>
-		<%= f.label :streamer, "Are You A Streamer?" %>
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation, class: "form-control form-control-sm" %>
+
+			<div class="form-group-check">
+				<%= f.check_box :streamer, class: "form-control-check" %>
+				<%= f.label :streamer, "Are You A Streamer?" %>
+			</div>
+
+			<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+		</div>
 	</div>
-
-	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

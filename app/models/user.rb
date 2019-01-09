@@ -26,6 +26,11 @@ class User < ApplicationRecord
 	has_many :following, 	 					 through: :active_relationships,  source: :followed
   has_many :followers, 	 					 through: :passive_relationships, source: :follower
 
+	mount_uploader :profile_pic, 			ProfilePicUploader
+	mount_uploader :background_pic, 	BackgroundPicUploader
+
+	validate :pic_size
+
 	class << self
 		# Returns the hash digest of the given string
 		def digest(string)
@@ -123,5 +128,11 @@ class User < ApplicationRecord
 		def create_activation_digest
 			self.activation_token = User.new_token
 			self.activation_digest = User.digest(activation_token)
+		end
+
+		def pic_size
+			if profile_pic.size > 5.megabytes || background_pic.size > 5.megabytes
+				errors.add(:user, "Picture Uploads Cannot Be Greater Than 5MB (づಠ╭╮ಠ)づ Please Try Again")
+			end
 		end
 end

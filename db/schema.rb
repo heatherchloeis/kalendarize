@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_06_053255) do
+ActiveRecord::Schema.define(version: 2019_01_07_174116) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_01_06_053255) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "timezone"
     t.index ["user_id", "day"], name: "index_streams_on_user_id_and_day"
     t.index ["user_id"], name: "index_streams_on_user_id"
   end
@@ -48,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_01_06_053255) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean "streamer", default: false
+    t.string "profile_pic"
+    t.string "background_pic"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

@@ -78,7 +78,9 @@ class UsersController < ApplicationController
 																	 :email,
 																	 :password,
 																	 :password_confirmation,
-																	 :streamer)
+																	 :streamer,
+																	 :profile_pic,
+																	 :background_pic)
 		end
 
 		# Confirms correct user
