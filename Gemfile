@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave-aws'
 gem 'aws-sdk-rails'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -46,9 +46,9 @@ class StreamsController < ApplicationController
 
 	private
 		def stream_params
-			params.require(:stream).permit(:day,
-																		 :start_time,
-																		 :end_time)
+			params.require(:stream).permit(:stream_day,
+																		 :stream_start,
+																		 :stream_end)
 		end
 
 		def set_stream

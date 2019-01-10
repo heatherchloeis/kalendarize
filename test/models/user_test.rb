@@ -105,7 +105,7 @@ class UserTest < ActiveSupport::TestCase
 
 	test "associated streams should be destroyed" do
 		@other_user.save
-		@other_user.streams.create!(day: '2019-01-11', start_time: '12:00:00', end_time: '16:00:00')
+		@other_user.streams.create!(stream_day: '2019-01-11', stream_start: '12:00:00', stream_end: '16:00:00')
 		assert_difference 'Stream.count', -1 do
 			@other_user.destroy
 		end

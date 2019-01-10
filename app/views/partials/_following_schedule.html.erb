@@ -2,7 +2,7 @@
 	<h3 class="text-center">Stream Shedule</h3>
 	<ul class="list-group">
 		<% @following_schedule_items.each do |s| %>
-			<%= render 'partials/stream', s: s %>
+			<%= render 'partials/following_stream', s: s %>
 		<% end %>
 	</ul>
 <% end %>

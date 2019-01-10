@@ -3,6 +3,7 @@ User.create!(name: "geralt",
 						 email: "geralt@rivia.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 time_zone: "Pacific Time (US & Canada)",
 						 admin: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
@@ -12,6 +13,7 @@ User.create!(name: "yennifer",
 						 email: "yennifer@vengerberg.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 time_zone: "Pacific Time (US & Canada)",
 						 admin: true,
 						 streamer: true,
 						 activated: true,
@@ -22,6 +24,7 @@ User.create!(name: "ciri",
 						 email: "cirilla@cintra.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 time_zone: "Central Time (US & Canada)",
 						 streamer: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
@@ -31,6 +34,7 @@ User.create!(name: "triss",
 						 email: "triss@maribor.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 time_zone: "Central Time (US & Canada)",
 						 streamer: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
@@ -40,6 +44,7 @@ User.create!(name: "keira metz",
 						 email: "keira@carreras.com",
 						 password: "password",
 						 password_confirmation: "password",
+						 time_zone: "Eastern Time (US & Canada)",
 						 streamer: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
@@ -50,18 +55,19 @@ User.create!(name: "keira metz",
 							 email: Faker::Internet.email,
 							 password: "password",
 							 password_confirmation: "password",
+						 	 time_zone: "Eastern Time (US & Canada)",
 							 activated: true,
 							 activated_at: Time.zone.now)
 end
 
 streamers = User.where("streamer = ?", true)
 days = ['2019-01-07', '2019-01-08', '2019-01-09', '2019-01-10', '2019-01-11']
-start_time = '12:00:00'
-end_time = '18:00:00'
+start_time = DateTime.new(2019,01,01,12,00,00)
+end_time = DateTime.new(2019,01,01,18,00,00)
 i = 0
 
 while i < days.size do
-	streamers.each { |s| s.streams.create!(day: days[i], start_time: start_time, end_time: end_time) if s.streamer? }
+	streamers.each { |s| s.streams.create!(stream_day: days[i], stream_start: start_time, stream_end: end_time) if s.streamer? }
 	i = i + 1
 end
 

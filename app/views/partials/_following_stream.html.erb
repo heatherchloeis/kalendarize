@@ -5,6 +5,6 @@
 	<%= render "partials/stream_dropdown", s: s %>
 	<div>
 		<%= s.stream_start.strftime('%A') %> &nbsp;
-		<%= s.stream_start.in_time_zone(s.user.time_zone).strftime('%I:%M %p') %> - <%= s.stream_end.in_time_zone(s.user.time_zone).strftime('%I:%M %p %Z') %>
+		<%= s.stream_start.in_time_zone(current_user.time_zone).strftime('%I:%M %p') %> - <%= s.stream_end.in_time_zone(current_user.time_zone).strftime('%I:%M %p') %>
 	</div>
 </li>

@@ -80,7 +80,8 @@ class UsersController < ApplicationController
 																	 :password_confirmation,
 																	 :streamer,
 																	 :profile_pic,
-																	 :background_pic)
+																	 :background_pic,
+																	 :time_zone)
 		end
 
 		# Confirms correct user
