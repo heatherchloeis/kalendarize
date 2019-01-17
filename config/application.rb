@@ -18,5 +18,7 @@ module Kalendarize
 
     # Include authenticity token in remote forms
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    config.beginning_of_week = :sunday
   end
 end

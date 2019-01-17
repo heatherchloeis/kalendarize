@@ -53,7 +53,7 @@ gem 'faker', '1.9.1'
 # Abort requests that are taking too long; an exception is raised
 gem "rack-timeout"
 
-# Validates overlap of time slots
+# Validate stream times dont overlay
 gem 'validates_overlap'
 
 group :development, :test do

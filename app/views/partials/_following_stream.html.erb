@@ -1,4 +1,4 @@
-<li class="list-group-item">
+<div class="stream_block" style="<%= stream_block_position(s) %> <%= stream_block_height(s) %> <%= stream_block_color %>">
 	<%= link_to s.user do %>
 		<%= icon('fas', 'user-circle') %> <%= s.user.name %> @<%= s.user.username %>
 	<% end %>
@@ -7,4 +7,4 @@
 		<%= s.stream_start.strftime('%A') %> &nbsp;
 		<%= s.stream_start.in_time_zone(current_user.time_zone).strftime('%I:%M %p') %> - <%= s.stream_end.in_time_zone(current_user.time_zone).strftime('%I:%M %p') %>
 	</div>
-</li>
+</div>

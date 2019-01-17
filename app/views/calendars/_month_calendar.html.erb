@@ -1,0 +1,34 @@
+<% start_date = params.fetch(:start_date, Date.today).to_date %>
+<% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
+
+<p class="text-center">
+	<%= link_to start_date: date_range.first - 1.day, class: "btn btn-primary float-left" do %>
+		<%= icon('fas', 'arrow-left') %>
+	<% end %>
+	<%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
+	<%= link_to start_date: date_range.last + 1.day, class: "btn btn-primary float-right" do %>
+		<%= icon('fas', 'arrow-right') %>
+	<% end %>
+</p>
+
+<table class="col-12">
+	<thead>
+		<tr class="row no-gutters text-center">
+			<% date_range.slice(0, 7).each do |day| %>
+				<th class="col"><%= I18n.t("date.day_names")[day.wday] %></th>
+			<% end %>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% date_range.each_slice(7) do |week| %>
+			<tr class="row no-gutters">
+				<% week.each do |day| %>
+					<td class="col text-center">
+						<%= day %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
