@@ -1,0 +1,31 @@
+event_one:
+  event_day: '2019-01-18'
+  event_start: '2019-01-18 18:00'
+  event_end: '2019-01-18 23:59'
+  event_title: Unicorn Party
+  event_description: Food, wine, and a little something extra. Private party
+  user: yennifer
+
+event_two:
+  event_day: '2019-01-19'
+  event_start: '2019-01-19 18:00'
+  event_end: '2019-01-19 22:00'
+  event_title: Defeat of the Wild Hunt
+  event_description: I can finally stop running in heels
+  user: cirilla
+
+event_three:
+  event_day: '2019-01-18'
+  event_start: '2019-01-18 19:00'
+  event_end: '2019-01-18 23:59'
+  event_title: House Warming Party
+  event_description: Break in the new house! EVERYONE is welcome
+  user: triss
+
+event_four:
+  event_day: '2019-01-25'
+  event_start: '2019-01-25 18:00'
+  event_end: '2019-01-25 22:00'
+  event_title: Netflix n Chill
+  event_description: I dont have a reason. Come on by
+  user: keira

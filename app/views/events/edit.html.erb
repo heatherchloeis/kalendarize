@@ -1,0 +1,9 @@
+<% provide(:title, "Edit Stream") %>
+
+<% if logged_in? %>
+	<div class="row">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
+			<%= render 'forms/event' if current_user.streamer? %>
+		</div>
+	</div>
+<% end %>

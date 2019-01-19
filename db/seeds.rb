@@ -24,7 +24,7 @@ User.create!(name: "ciri",
 						 email: "cirilla@cintra.com",
 						 password: "password",
 						 password_confirmation: "password",
-						 time_zone: "Central Time (US & Canada)",
+						 time_zone: "Mountain Time (US & Canada)",
 						 streamer: true,
 						 activated: true,
 						 activated_at: Time.zone.now)
@@ -73,9 +73,32 @@ end
 
 users = User.all 
 
-while i < streamers.size do
-	streamers.each { |s| s.follow(streamers[i]) }
-	users.each { |u| u.follow(streamers[i]) }
-	i = i +1
-end
+j = 0
+while j < streamers.size do
+	users.each { |u| u.follow(streamers[j]) unless u == streamers[j] }
+	j = j + 1
+end 
 
+streamers[0].events.create!(event_title: 'Geralts Birthday Party',
+													  event_description: 'BYOB and Dont Be LATE',
+													  event_day: '2019-02-01',
+													  event_start: DateTime.new(2019,02,01,21,00,00),
+													  event_end: DateTime.new(2019,02,02,00,00,00))
+
+streamers[3].events.create!(event_title: 'Welcoming Party',
+													  event_description: 'RSVP by Wednesday!',
+													  event_day: '2019-02-08',
+													  event_start: DateTime.new(2019,02,8,19,00,00),
+													  event_end: DateTime.new(2019,02,8,23,00,00))
+
+streamers[1].events.create!(event_title: 'Graduation',
+													  event_description: 'Im Free Im Free',
+													  event_day: '2019-03-21',
+													  event_start: DateTime.new(2019,03,21,22,00,00),
+													  event_end: DateTime.new(2019,03,22,00,00,00))
+
+streamers[2].events.create!(event_title: 'Geralts Birthday Celebration',
+													  event_description: 'BYOB',
+													  event_day: '2019-02-02',
+													  event_start: DateTime.new(2019,02,02,22,00,00),
+													  event_end: DateTime.new(2019,02,03,00,00,00))

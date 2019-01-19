@@ -1,0 +1,8 @@
+<div class="calendar_block" style="<%= block_position(e) %> <%= block_height(e) %> <%= block_color %>">
+	<%= e.event_title %> <small>hosted by</small> <%= link_to e.user do %><%= e.user.name %> @<%= e.user.username %><% end %>
+	<%= render "partials/event_dropdown", e: e %>
+	<div>
+		<%= e.event_day.strftime('%B %d %Y') %> &nbsp;
+		<%= e.event_start.in_time_zone(current_user.time_zone).strftime('%I:%M %p') %> - <%= e.event_end.in_time_zone(current_user.time_zone).strftime('%I:%M %p %Z') %>
+	</div>
+</div>

@@ -26,8 +26,12 @@
 				<% week.each do |day| %>
 					<td class="col text-center">
 						<%= day %>
-						<% @following_schedule_items.select { |s| s.stream_start.strftime("%A") == day.strftime("%A") }.each do |s| %>
-							<%= render 'partials/following_stream', s: s %>
+						<% @following_schedule_items.select do |o| %>
+							<% if o.instance_of?(Stream) && o.stream_start.strftime("%A") == day.strftime("%A") %>
+								<%= render 'partials/following_stream', s: o %>
+							<% elsif o.instance_of?(Event) && o.event_day == day %>
+								<%= render 'partials/following_event', e: o %>
+							<% end %>
 						<% end %>
 						<% 24.times do %>
 							<div class="hour"></div>

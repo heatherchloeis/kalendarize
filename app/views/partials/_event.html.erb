@@ -1,0 +1,11 @@
+<li class="list-group-item">
+	<%= e.event_title %> <small>hosted by</small> <%= link_to e.user do %><%= e.user.name %> @<%= e.user.username %><% end %>
+	<%= render "partials/event_dropdown", e: e %>
+	<div>
+		<%= e.event_start.strftime('%B %d %Y') %> &nbsp;
+		<%= e.event_start.in_time_zone(e.user.time_zone).strftime('%I:%M %p') %> - <%= e.event_end.in_time_zone(e.user.time_zone).strftime('%I:%M %p %Z') %>
+	</div>
+	<div>
+		<p><%= e.event_description %></p>
+	</div>
+</li>

@@ -1,0 +1,28 @@
+<%= form_for(@event) do |f| %>
+	<div class="form-group form-row">
+		<%= f.label :event_day, class: "col-8" %>
+		<%= f.date_field :event_day, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<div class="form-group form-row">
+		<%= f.label :event_start, class: "col-8" %>
+		<%= f.time_field :event_start, options: { :ignore_date => true }, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<div class="form-group form-row">
+		<%= f.label :event_end, class: "col-8" %>
+		<%= f.time_field :event_end, options: { :ignore_date => true }, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<div class="form-group form-row">
+		<%= f.label :event_title, class: "col-8" %>
+		<%= f.text_field :event_title, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<div class="form-group form-row">
+		<%= f.label :event_description, class: "col-8" %>
+		<%= f.text_field :event_description, class: "col-4 form-control form-control-sm" %>
+	</div>
+
+	<%= f.submit "submit", class: "btn btn-primary" %>
+<% end %>

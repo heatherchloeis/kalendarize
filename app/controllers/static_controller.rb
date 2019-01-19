@@ -11,6 +11,7 @@ class StaticController < ApplicationController
     if logged_in?
       @title = "Home"
       @stream = current_user.streams.build
+      @event = current_user.events.build
       @schedule_items = current_user.schedule
       @following_schedule_items = current_user.following_schedule
     end

@@ -16,7 +16,7 @@ class StreamTest < ActiveSupport::TestCase
 		assert_not @stream.valid?
 	end
 
-	test "user id, day, times, and time-zones should be present" do 
+	test "user id, day, and times should be present" do 
 		# Nil user id
 		@stream.user_id = nil
 		assert_not @stream.valid?
@@ -37,11 +37,11 @@ class StreamTest < ActiveSupport::TestCase
 		assert_not @stream.valid?
 	end
 
-	test "should not overlap" do
-		@stream.save
-		@other_stream = @user.streams.build(stream_day: '2019-01-06', stream_start: 'Wed, 09 Jan 2019 10:00:00 -0800', stream_end: 'Wed, 09 Jan 2019 14:00:00 -0800')
-		assert_not @other_stream.valid?
-	end
+	# test "should not overlap" do
+	# 	@stream.save
+	# 	@other_stream = @user.streams.build(stream_day: '2019-01-06', stream_start: 'Wed, 09 Jan 2019 10:00:00 -0800', stream_end: 'Wed, 09 Jan 2019 14:00:00 -0800')
+	# 	assert_not @other_stream.valid?
+	# end
 
 	test "should be in chronological order" do
 		assert_equal streams(:stream_one), Stream.first

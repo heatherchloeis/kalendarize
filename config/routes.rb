@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :streams
+  resources :events
   resources :user_activations,    only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :relationships,       only: [:create, :destroy]

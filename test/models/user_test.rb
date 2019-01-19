@@ -6,13 +6,15 @@ class UserTest < ActiveSupport::TestCase
 										 username: "exampleuser",
 										 email: "user@example.com",
 										 password: "password",
-										 password_confirmation: "password")
+										 password_confirmation: "password",
+										 time_zone: "Pacific Time (US & Canada)")
 		@other_user = User.new(name: "Other User",
 										 			 username: "otheruser",
 										 			 email: "other_user@example.com",
 										 			 password: "password",
 										 			 password_confirmation: "password",
-										 			 streamer: true)
+										 			 streamer: true,
+													 time_zone: "Pacific Time (US & Canada)")
 	end
 
 	# User name, username, email, and password testing suite

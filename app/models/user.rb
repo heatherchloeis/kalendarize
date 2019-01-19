@@ -17,6 +17,7 @@ class User < ApplicationRecord
 	has_secure_password
 
 	has_many :streams, 							 dependent: :destroy
+	has_many :events,								 dependent: :destroy
 	has_many :active_relationships,  class_name: "Relationship", 
 																	 foreign_key: "follower_id", 
 																	 dependent: :destroy
@@ -91,12 +92,12 @@ class User < ApplicationRecord
 
 	# Defines post feed
 	def schedule
-		Stream.where("user_id = ?", id)
+		Stream.where("user_id = ?", id) + Event.where("user_id = ?", id)
 	end
 
 	def following_schedule
 		following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
-		Stream.where("user_id IN (#{following_ids})", user_id: id)
+		Stream.where("user_id IN (#{following_ids})", user_id: id) + Event.where("user_id IN (#{following_ids})", user_id: id)
 	end
 
 	# Follows a user
