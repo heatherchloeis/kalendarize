@@ -17,6 +17,26 @@ class RelationshipsController < ApplicationController
   	end
   end
 
+  def favorite
+    @user = Relationship.find(params[:id]).followed
+    current_user.favorite(@user)
+    respond_to do |format|
+      # Handle a Successful Unfollow
+      format.html
+      format.js
+    end
+  end
+
+  def unfavorite
+    @user = Relationship.find(params[:id]).followed
+    current_user.unfavorite(@user)
+    respond_to do |format|
+      # Handle a Successful Unfollow
+      format.html
+      format.js
+    end
+  end
+
   def destroy
   	@user = Relationship.find(params[:id]).followed
   	current_user.unfollow(@user)
@@ -26,4 +46,9 @@ class RelationshipsController < ApplicationController
   		format.js
   	end
   end
+
+  private
+    def relationship_params
+      params.require(:relationship).permit(:favorited)
+    end
 end

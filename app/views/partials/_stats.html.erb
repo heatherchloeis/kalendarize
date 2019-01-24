@@ -15,5 +15,6 @@
 	</div>
 	<div class="col-4">
 		<%= render 'forms/follow', followed_id: @user.id %>
+		<%= render 'forms/favorite', followed_id: @user.id if current_user.following?(@user) %>
 	</div>
 </div>

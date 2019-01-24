@@ -26,4 +26,11 @@ class RelationshipTest < ActiveSupport::TestCase
 		@relationship.follower_id = users(:yennifer).id
 		assert_not @relationship.valid?
 	end
+
+	test "relationship can be favorited and unfavorited" do
+		@relationship.favorited = true
+		assert @relationship.valid?
+		@relationship.favorited = false
+		assert @relationship.valid?
+	end
 end

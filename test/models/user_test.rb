@@ -143,4 +143,11 @@ class UserTest < ActiveSupport::TestCase
 			assert_not yen.following_schedule.include?(s)
 		end
 	end
+
+	test "should favorite and unfavorite a streamer" do
+		yennifer = users(:yennifer)
+		cirilla = users(:cirilla)
+		yennifer.follow(cirilla)
+		yennifer.favorite(cirilla)
+	end
 end

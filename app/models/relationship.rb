@@ -7,6 +7,14 @@ class Relationship < ApplicationRecord
 
 	validate  :followed_is_streamer, :followed_is_not_follower
 
+	def favorite
+		update_attribute(:favorited, true)
+	end
+
+	def unfavorite
+		update_attribute(:favorited, false)
+	end
+
 	private
 		def followed_is_streamer
 			@streamer = User.where(["id = ? and streamer = ?", followed_id, true])

@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
 	has_many :following, 	 					 through: :active_relationships,  source: :followed
   has_many :followers, 	 					 through: :passive_relationships, source: :follower
+  has_many :favorites,						 -> { where(relationships: { favorited: true }) }, through: :active_relationships,	 source: :followed
 
 	mount_uploader :profile_pic, 			ProfilePicUploader
 	mount_uploader :background_pic, 	BackgroundPicUploader
@@ -100,6 +101,11 @@ class User < ApplicationRecord
 		Stream.where("user_id IN (#{following_ids})", user_id: id) + Event.where("user_id IN (#{following_ids})", user_id: id)
 	end
 
+	def favorited_schedule
+		favorited_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id && favorited = true"
+		Stream.where("user_id IN (#{favorited_ids})", user_id: id) + Event.where("user_id IN (#{favorited_ids})", user_id: id)
+	end
+
 	# Follows a user
 	def follow(other_user)
 		active_relationships.create(followed_id: other_user.id)
@@ -113,6 +119,18 @@ class User < ApplicationRecord
 	# Returns true if the current user is following the other user
 	def following?(other_user)
 		following.include?(other_user)
+	end
+
+	def favorite(other_user)
+		active_relationships.find_by(followed_id: other_user.id).favorite
+	end
+
+	def unfavorite(other_user)
+		active_relationships.find_by(followed_id: other_user.id).unfavorite
+	end
+
+	def favorited?(other_user)
+		favorites.include?(other_user)
 	end
 
 	private
