@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'friendly_id', '~> 5.2.4'
 
 # Use Bootstrap and JQuery and Popper for SCSS/CSS and Javascipt framework
-gem 'bootstrap', '~> 4.1.3'
+gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails'
 gem 'jquery-atwho-rails'
